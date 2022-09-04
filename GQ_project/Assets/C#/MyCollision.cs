@@ -10,6 +10,11 @@ public class MyCollision : MonoBehaviour
     private Vector3 pos;
     private int vc;
 
+    [SerializeField]
+    private AudioClip se;
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         obj = GameObject.Find("PlayerCapsule").transform.GetChild(3).gameObject;
@@ -18,6 +23,8 @@ public class MyCollision : MonoBehaviour
         vc = sk.VerticsCount;
 
         pos = transform.position;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -25,6 +32,7 @@ public class MyCollision : MonoBehaviour
         if(HitCheck())
         {
             Debug.Log("Hit");
+            AudioSource.PlayClipAtPoint(se, transform.position);
 
             Destroy(gameObject);
         }
