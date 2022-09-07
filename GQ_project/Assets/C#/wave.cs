@@ -5,27 +5,42 @@ using UnityEngine;
 public class wave : MonoBehaviour
 {
 	private GameObject point;
+	private LineRenderer LR;
 
-	private float Grand;
 	private float rand;
+	private Vector3 pos;
 
 	private float dis;
 	private float v;
-	private float amp;
-	private float time;
+	private float a;
+	private float t;
+	private float T;
 
 	private void Awake()
     {
 		point = GameObject.Find("WavePoint");
+		LR = GetComponent<LineRenderer>();
+
+		pos = LR.GetPosition(1);
+
 		dis = Vector3.Distance(transform.position, point.transform.position);
 
-		v = 4.0f;
-		time = 0.0f;
+		a = 0.08f;
+		v = 0.001f;
+		T = 2.0f;
+		t = 0.0f;
 		rand = Random.Range(0.0f, 10.0f);
 	}
 
     private void FixedUpdate()
     {
-		time++;
-    }
+		t++;
+		t = Mathf.Round(t);
+        if (t % 9 == 0)
+        {
+			pos.z += a * Mathf.Sin((Mathf.PI / T) * (t - (dis / v)));
+			LR.SetPosition(1, pos);
+		}
+
+	}
 }

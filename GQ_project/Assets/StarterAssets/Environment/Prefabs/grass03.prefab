@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1042233946024560670}
   - component: {fileID: 1042233946024561120}
   - component: {fileID: 3429268200361332907}
+  - component: {fileID: 6225554438736148152}
   m_Layer: 0
   m_Name: grass03
   m_TagString: Untagged
@@ -75,7 +76,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1.2}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2
@@ -258,3 +259,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6225554438736148152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042233946024560671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f614b594326184f9997c340cc7e895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
