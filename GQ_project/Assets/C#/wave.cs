@@ -12,7 +12,9 @@ public class wave : MonoBehaviour
 
 	private float dis;
 	private float v;
-	private float a;
+	private float a_x;
+	private float a_y;
+	private float a_z;
 	private float t;
 	private float T;
 
@@ -25,10 +27,13 @@ public class wave : MonoBehaviour
 
 		dis = Vector3.Distance(transform.position, point.transform.position);
 
-		a = 0.08f;
+		a_x = 0.05f;
+		a_y = 0.05f;
+		a_z = 0.08f;
 		v = 0.001f;
-		T = 2.0f;
+		T = 5.0f;
 		t = 0.0f;
+
 		rand = Random.Range(0.0f, 10.0f);
 	}
 
@@ -36,9 +41,12 @@ public class wave : MonoBehaviour
     {
 		t++;
 		t = Mathf.Round(t);
-        if (t % 9 == 0)
+
+        if (t % 15 == 0)
         {
-			pos.z += a * Mathf.Sin((Mathf.PI / T) * (t - (dis / v)));
+			pos.x += a_x * Mathf.Sin((Mathf.PI / T) * (t - (dis / v)));
+			pos.y += a_y * Mathf.Sin((Mathf.PI / T) * (t - (dis / v)));
+			pos.z += a_z * Mathf.Sin((Mathf.PI / T) * (t - (dis / v)));
 			LR.SetPosition(1, pos);
 		}
 
