@@ -35,7 +35,7 @@ public class SibaKari : MonoBehaviour
             }
         }
 
-        //unityの座標系上は入れ替えが必要
+        //unityの座標系上、入れ替えが必要
         var a = pos[2];
         pos[2] = pos[3];
         pos[3] = a;
